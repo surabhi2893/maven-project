@@ -21,3 +21,12 @@ pipeline
 	}
 }
 
+stage ('deploy to tomcat'){
+
+steps {
+  sshagent (credentials: ['35.180.189.169']) {
+    sh 'ssh -o StrictHostKeyChecking=no **/*war ec2-user@35.180.189.169:/var/lib/tomcat/Webapps
+	}
+  }
+}
+
