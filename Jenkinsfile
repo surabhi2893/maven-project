@@ -18,15 +18,18 @@ pipeline
 	    			}
 			}
 		}
-	}
-}
-
-stage ('deploy to tomcat'){
+		
+	stage ('deploy to tomcat'){
 
 steps {
   sshagent (['35.180.189.169']) {
-    sh 'scp -o StrictHostKeyChecking=no **/*war ec2-user@35.180.189.169:/var/lib/tomcat/webapps
+    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@35.180.189.169:/var/lib/tomcat/webapps'
 	}
   }
 }
+		
+	}
+}
+
+
 
