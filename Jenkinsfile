@@ -2,8 +2,10 @@ pipeline
 {
 	agent any
 		{
-      stage "scm checkout"
+			stage "scm checkout" {
 	    git 'https://github.com/surabhi2893/maven-project.git'
+				
+			}
 	
 	
 	    stage "code test"
