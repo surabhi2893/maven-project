@@ -1,4 +1,5 @@
-pipeline {
+pipeline 
+{
 	agent any
 	
 	stages
@@ -9,17 +10,14 @@ pipeline {
 	}
 	{
 	
-	
 		stage ('code test') {
-			
-			steps {
-	    withMaven(maven: 'LocalMaven')
+		steps {
+	    		withMaven(maven: 'LocalMaven')
 				{
-					
-	    		sh 'mvn test'
-	    }
+				sh 'mvn test'
+	    			}
 			}
 		}
 	}
-	
 }
+
