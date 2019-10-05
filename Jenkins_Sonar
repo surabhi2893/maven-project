@@ -7,11 +7,7 @@ pipeline
 			git 'https://github.com/surabhi2893/maven-project.git' }
 	}
 
-	{
-		stages ('Compile stage') {
-		agent {'label 'maven''}
-	}
-	}
+
 	{
 		stage ('build && SonarQube analysis') {
 		steps {
@@ -23,5 +19,3 @@ pipeline
     }
     }
     }
-
-
