@@ -1,13 +1,13 @@
 pipeline {
 agent any {
-stage ('checkout') {
+stage ('SCM checkout') {
 git 'https://github.com/surabhi2893/maven-project.git' }
 
 stage ('build && SonarQube analysis') {
  steps {
     withSonarQubeEnv('sonar') {
     WithMaven(maven: 'LocalMaven')
-    sh 'clean install sonar:sonar'
+    sh 'mvn clean package sonar:sonar'
     } 
     } 
     }
